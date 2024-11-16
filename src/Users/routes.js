@@ -1,14 +1,18 @@
-const {validatePassword,validateUsername,hashPassword}=require("./middleware")
-const createUser =require("./userController");
+const {validatePassword,validateUsername,hashPassword,validateSignin,authenticate}=require("./middleware")
+const {createUser,loginUser} =require("./userController");
 const userRoutes =(server)=>{
-    server.get("/",(req,res)=>{
+    server.get("/",authenticate,(req,res)=>{
         res.send("hello users")
     })
-    server.post("/signin",
+    server.post("/signup",
         validateUsername,
         validatePassword,
         hashPassword,
         createUser
+    )
+    server.post("/signin",
+        validateSignin,
+        loginUser
     )
 } 
 module.exports=userRoutes;
