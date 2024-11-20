@@ -18,8 +18,6 @@ try{
     console.log("error",err);
     
 }
-
-
 }
 const loginUser= async(req,res)=>{
     const {payload}=req;
@@ -29,6 +27,5 @@ const loginUser= async(req,res)=>{
     }catch(err){
         console.log("error",err);
     }
-   
 }
 module.exports={createUser,loginUser};
