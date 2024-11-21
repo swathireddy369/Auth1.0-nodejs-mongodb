@@ -12,7 +12,7 @@ const userError = (error, res) => {
     if (error && error.message) {
         return res.status(User_Error_Status).json({ error: error.message });
     } else {
-        return res.status(User_Error_Status).json({ message: res.message });
+        return res.status(User_Error_Status).json({ error: res.message });
     }
 };
 
@@ -72,11 +72,9 @@ const validateSignin = async (req, res, next) => {
              if (error == undefined && !response ) {
                 return userError(new Error("Incorrect password"), res);
             }else{
-                req.payload={userName,slackId:getUser.slackId}
+                req.payload={userName}
                 next();    }
         });
-        
-
     } catch (error) {
         return res.status(500).json({ error: "Server error", details: error.message });
     }

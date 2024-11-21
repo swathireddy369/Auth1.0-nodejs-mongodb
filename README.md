@@ -18,7 +18,7 @@ A simple user authentication system built with Node.js, Express, and MongoDB. Th
 ## Routes
 
 1. **Signup** (`POST /signup`):
-   - Request Body: `userName`, `password`, `confirmPassword`, `slackId`
+   - Request Body: `userName`, `password`, `confirmPassword`
    - Middleware: 
      - `validateUsername`: Ensures username is at least 5 characters.
      - `validatePassword`: Validates password and confirmation match.

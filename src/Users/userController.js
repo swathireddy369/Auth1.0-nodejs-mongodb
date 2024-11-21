@@ -7,8 +7,7 @@ const createUser = async(req,res)=>{
 const data=req.body;
 let payload={
     userName:req.body.userName,
-    password:req.hashPassword,
-    slackId:req.body.slackId
+    password:req.hashPassword
 }
 try{
     const newUser =await userSchema.create(payload)
